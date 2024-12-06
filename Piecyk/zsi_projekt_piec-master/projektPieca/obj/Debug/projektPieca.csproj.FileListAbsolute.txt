@@ -1,0 +1,31 @@
+X:\Projekty\Uczelnia\ZSI\projektPieca\projektPieca\bin\Debug\projektPieca.exe.config
+X:\Projekty\Uczelnia\ZSI\projektPieca\projektPieca\bin\Debug\projektPieca.exe
+X:\Projekty\Uczelnia\ZSI\projektPieca\projektPieca\bin\Debug\projektPieca.pdb
+X:\Projekty\Uczelnia\ZSI\projektPieca\projektPieca\obj\Debug\projektPieca.csprojAssemblyReference.cache
+X:\Projekty\Uczelnia\ZSI\projektPieca\projektPieca\obj\Debug\projektPieca.Properties.Resources.resources
+X:\Projekty\Uczelnia\ZSI\projektPieca\projektPieca\obj\Debug\projektPieca.csproj.GenerateResource.cache
+X:\Projekty\Uczelnia\ZSI\projektPieca\projektPieca\obj\Debug\projektPieca.csproj.CoreCompileInputs.cache
+X:\Projekty\Uczelnia\ZSI\projektPieca\projektPieca\obj\Debug\projektPieca.exe
+X:\Projekty\Uczelnia\ZSI\projektPieca\projektPieca\obj\Debug\projektPieca.pdb
+X:\Projekty\Uczelnia\ZSI\projektPieca\projektPieca\obj\Debug\projektPieca.Piecyk.resources
+C:\Users\magda\OneDrive\Pulpit\Nowy folder\Nowy folder\zsi_projekt_piec-master\projektPieca\bin\Debug\projektPieca.exe.config
+C:\Users\magda\OneDrive\Pulpit\Nowy folder\Nowy folder\zsi_projekt_piec-master\projektPieca\bin\Debug\projektPieca.exe
+C:\Users\magda\OneDrive\Pulpit\Nowy folder\Nowy folder\zsi_projekt_piec-master\projektPieca\bin\Debug\projektPieca.pdb
+C:\Users\magda\OneDrive\Pulpit\Nowy folder\Nowy folder\zsi_projekt_piec-master\projektPieca\obj\Debug\projektPieca.csproj.AssemblyReference.cache
+C:\Users\magda\OneDrive\Pulpit\Nowy folder\Nowy folder\zsi_projekt_piec-master\projektPieca\obj\Debug\projektPieca.csproj.SuggestedBindingRedirects.cache
+C:\Users\magda\OneDrive\Pulpit\Nowy folder\Nowy folder\zsi_projekt_piec-master\projektPieca\obj\Debug\projektPieca.Piecyk.resources
+C:\Users\magda\OneDrive\Pulpit\Nowy folder\Nowy folder\zsi_projekt_piec-master\projektPieca\obj\Debug\projektPieca.Properties.Resources.resources
+C:\Users\magda\OneDrive\Pulpit\Nowy folder\Nowy folder\zsi_projekt_piec-master\projektPieca\obj\Debug\projektPieca.csproj.GenerateResource.cache
+C:\Users\magda\OneDrive\Pulpit\Nowy folder\Nowy folder\zsi_projekt_piec-master\projektPieca\obj\Debug\projektPieca.csproj.CoreCompileInputs.cache
+C:\Users\magda\OneDrive\Pulpit\Nowy folder\Nowy folder\zsi_projekt_piec-master\projektPieca\obj\Debug\projektPieca.exe
+C:\Users\magda\OneDrive\Pulpit\Nowy folder\Nowy folder\zsi_projekt_piec-master\projektPieca\obj\Debug\projektPieca.pdb
+C:\Users\magda\OneDrive\Pulpit\INTELLIGENCE\Nowy folder\zsi_projekt_piec-master\projektPieca\bin\Debug\projektPieca.exe.config
+C:\Users\magda\OneDrive\Pulpit\INTELLIGENCE\Nowy folder\zsi_projekt_piec-master\projektPieca\bin\Debug\projektPieca.exe
+C:\Users\magda\OneDrive\Pulpit\INTELLIGENCE\Nowy folder\zsi_projekt_piec-master\projektPieca\bin\Debug\projektPieca.pdb
+C:\Users\magda\OneDrive\Pulpit\INTELLIGENCE\Nowy folder\zsi_projekt_piec-master\projektPieca\obj\Debug\projektPieca.csproj.AssemblyReference.cache
+C:\Users\magda\OneDrive\Pulpit\INTELLIGENCE\Nowy folder\zsi_projekt_piec-master\projektPieca\obj\Debug\projektPieca.Piecyk.resources
+C:\Users\magda\OneDrive\Pulpit\INTELLIGENCE\Nowy folder\zsi_projekt_piec-master\projektPieca\obj\Debug\projektPieca.Properties.Resources.resources
+C:\Users\magda\OneDrive\Pulpit\INTELLIGENCE\Nowy folder\zsi_projekt_piec-master\projektPieca\obj\Debug\projektPieca.csproj.GenerateResource.cache
+C:\Users\magda\OneDrive\Pulpit\INTELLIGENCE\Nowy folder\zsi_projekt_piec-master\projektPieca\obj\Debug\projektPieca.csproj.CoreCompileInputs.cache
+C:\Users\magda\OneDrive\Pulpit\INTELLIGENCE\Nowy folder\zsi_projekt_piec-master\projektPieca\obj\Debug\projektPieca.exe
+C:\Users\magda\OneDrive\Pulpit\INTELLIGENCE\Nowy folder\zsi_projekt_piec-master\projektPieca\obj\Debug\projektPieca.pdb
