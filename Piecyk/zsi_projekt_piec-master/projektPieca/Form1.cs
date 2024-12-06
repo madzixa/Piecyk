@@ -44,70 +44,7 @@ namespace projektPieca
             aktualnaTempPok.Text = "" + temperaturaPokojuBar.Value + "°C";
         }
 
-        //public async Task GeneratorTemp_Zima()
-        //{
-        //    int wczytaj;
-        //    bool TemperaturaBool;
-        //    int[] tablicaTemperatur = File.ReadLines(@"Zima.txt")
-        //        .Select(n =>
-        //        {
-        //            TemperaturaBool = int.TryParse(n,out wczytaj);
-        //            return new { wczytaj, TemperaturaBool };
-        //        })
-        //        .Where(x => x.TemperaturaBool)
-        //        .Select(x => x.wczytaj).ToArray();
-        //    for (int i = 1; i < tabSize; i++)
-        //    {
-
-        //        if (aktualnaPoraRoku != "ZIMA")
-        //            return;
-
-
-        //        await Task.Delay(delay);
-        //        aktualnaTempZew.Text = tablicaTemperatur[i].ToString();
-        //        Rozmycie();
-              
-        //    }
-        //}
-
-
-
-
-
-
-      
-        /// ////////////////////////////////////////////////////////////////////////////
-     /*
-
-        int wczytaj;
-        bool TemperaturaBool;
-        int[] tablicaTemperatur = File.ReadLines(@"Zima.txt")
-            .Select(n =>
-            {
-                TemperaturaBool = int.TryParse(n, out wczytaj);
-                return new { wczytaj, TemperaturaBool };
-            })
-            .Where(x => x.TemperaturaBool)
-            .Select(x => x.wczytaj).ToArray();
-
-
-
-
-
-
-
-
-            await Task.Delay(delay);
-            aktualnaTempZew.Text = tablicaTemperatur[i].ToString();
-            Rozmycie();
-        */
-
-
-
-
-
-
-
+   
 
         private async void ComboBox1_Pory(object sender, EventArgs e)
         {
@@ -208,127 +145,6 @@ namespace projektPieca
 
 
 
-
-
-        
-
-
-
-        
-
-
-
-
-
-
-        /// /////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //public async Task GeneratorTemp_Wiosna()
-        //{
-        //    int wczytaj;
-        //    bool TemperaturaBool;
-        //    int[] tablicaTemperatur = File.ReadLines(@"Wiosna.txt")
-        //        .Select(n =>
-        //        {
-        //            TemperaturaBool = int.TryParse(n, out wczytaj);
-        //            return new { wczytaj, TemperaturaBool };
-        //        })
-        //        .Where(x => x.TemperaturaBool)
-        //        .Select(x => x.wczytaj).ToArray();
-        //    for (int i = 1; i < tabSize; i++)
-        //    {
-
-        //        if (aktualnaPoraRoku != "WIOSNA")
-        //            return;
-
-        //        await Task.Delay(delay);
-        //        aktualnaTempZew.Text = tablicaTemperatur[i].ToString();
-        //        Rozmycie();
-              
-        //    }
-        //}
-
-        //public async Task GeneratorTemp_Lato()
-        //{
-        //    int wczytaj;
-        //    bool TemperaturaBool;
-        //    int[] tablicaTemperatur = File.ReadLines(@"Lato.txt")
-        //        .Select(n =>
-        //        {
-        //            TemperaturaBool = int.TryParse(n, out wczytaj);
-        //            return new { wczytaj, TemperaturaBool };
-        //        })
-        //        .Where(x => x.TemperaturaBool)
-        //        .Select(x => x.wczytaj).ToArray();
-        //    for (int i = 1; i < tabSize; i++)
-        //    {
-
-
-        //        if (aktualnaPoraRoku != "LATO")
-        //            return;
-
-
-        //        await Task.Delay(delay);
-        //        aktualnaTempZew.Text = tablicaTemperatur[i].ToString();
-        //        Rozmycie();
-        //    }
-        //}
-
-        //public async Task GeneratorTemp_Jesien()
-        //{
-        //    int wczytaj;
-        //    bool TemperaturaBool;
-        //    int[] tablicaTemperatur = File.ReadLines(@"Jesien.txt")
-        //        .Select(n =>
-        //        {
-        //            TemperaturaBool = int.TryParse(n, out wczytaj);
-        //            return new { wczytaj, TemperaturaBool };
-        //        })
-        //        .Where(x => x.TemperaturaBool)
-        //        .Select(x => x.wczytaj).ToArray();
-        //    for (int i = 1; i < tabSize; i++)
-        //    {
-
-        //        if (aktualnaPoraRoku != "JESIEŃ")
-        //            return;
-
-
-
-        //        await Task.Delay(delay);
-        //        aktualnaTempZew.Text = tablicaTemperatur[i].ToString();
-        //        Rozmycie();
-        //    }
-        //}
-
-        //public async Task GeneratorTemp_Stala()
-        //{
-        //    int tablicaTemperatur = 20;
-            
-        //    for (int i = 1; i < 100; i++)
-        //    {
-        //        if (aktualnaPoraRoku != "STAŁA")
-        //            return;
-
-
-        //        await Task.Delay(delay);
-        //        aktualnaTempZew.Text = tablicaTemperatur.ToString();
-        //        Rozmycie();
-               
-        //    }
-        //}
-
         public void Rozmycie()
         {
             int TemZew = Convert.ToInt32(aktualnaTempZew.Text);
@@ -414,28 +230,43 @@ namespace projektPieca
             System.Console.WriteLine("uBDuza: " + uBDuza + "; uDuza :" + uDuza + "; uSrednia :" + uSrednia + "; uMala :" + uMala + "; uBMala :" + uBMala);
 
             // Wnioskowanie
-
-            float SWu = 0.00f;
-            float sW = 0.00f;
-
+            float mocGrz = 0.00f;
+         
             float A = System.Math.Min(uBDuza, DanaTemp);
             float B = System.Math.Min(uDuza, DanaTemp);
             float C = System.Math.Min(uSrednia, DanaTemp);
             float D = System.Math.Min(uMala, DanaTemp);
+            float E = System.Math.Min(uBMala, DanaTemp);
 
 
-            SWu = uBDuza * A + uDuza * B + uSrednia * C + uMala  * D ;
-            sW = A + B + C + D + 0.01f; /////
+            float maks = System.Math.Max(System.Math.Max(System.Math.Max(A, B), System.Math.Max(C, D)),E);
+
+            if (A == maks)
+            { mocGrz = 1f; }
+            else if (B == maks)
+            { mocGrz = 0.75f; }
+            else if (C == maks)
+            { mocGrz = 0.5f; }
+            else if (D == maks)
+            { mocGrz = 0.25f; }
+            else if (E == maks)
+            { mocGrz = 0f; }
+
+
+
+            // SWu = uBDuza * A + uDuza * B + uSrednia * C + uMala  * D + uBMala * E ;
+            //  sW = A + B + C + D + E + 0.01f; /////
             //Wyostrzenie
 
-            float wyostrzenie = 0.00f;
-            wyostrzenie = (SWu / sW);
 
-            Grzanie(wyostrzenie, DanaTemp);
-            oziebianie(Wyjscie, TemZew);
+
+
+
+            Grzanie(mocGrz, DanaTemp);
+            PrzewCiep(Wyjscie, TemZew);
             WykresTwew(); 
         }
-        public void oziebianie(float Wyjscie, int TemZew)
+        public void PrzewCiep(float Wyjscie, int TemZew)
         {
 
 
@@ -457,18 +288,18 @@ namespace projektPieca
             richTextBox1.AppendText("Temperatura pokoju: " + Wyjscie + "\n");
         }
 
-        public void Grzanie(float wyostrzenie, float DanaTemp)
+        public void Grzanie(float mocGrz, float DanaTemp)
         {
-            wyostrzenie = wyostrzenie / 100f;
+            mocGrz = mocGrz / 100f;
             float value = 0f;
            
-                value = DanaTemp - wyostrzenie;
+                value = DanaTemp - mocGrz;
                 Wyjscie += value / 10f;
             
             //else
             //{
-            //    wyostrzenie = (Wyjscie - DanaTemp) - wyostrzenie;
-            //    Wyjscie -= (wyostrzenie +0.01f)/ 10f;
+            //    mocGrz = (Wyjscie - DanaTemp) - mocGrz;
+            //    Wyjscie -= (mocGrz +0.01f)/ 10f;
             //}
             
         }
@@ -482,58 +313,7 @@ namespace projektPieca
             {
                 
                 aTempWykres.Series["TabelaWew"].Points.AddXY(y, x);
-                aTempZewWykres.Series["TabelaZew"].Points.AddXY(y, x2);
-            }
         }
-
-        //------------------------------------------------------------------- CheckBox'y
-
-
-        //private async void ComboBox1_Pory(object sender, EventArgs e)
-        //{
-
-        //    string wybranaOpcja = comboBox1.SelectedItem.ToString();
-
-
-        //    if (wybranaOpcja == aktualnaPoraRoku)
-        //        return;
-
-        //    // Zaktualizuj aktualnie działającą metodę
-        //    aktualnaPoraRoku = wybranaOpcja;
-
-
-
-        //    switch (wybranaOpcja)
-        //    {
-        //        case "WIOSNA":
-        //           await GeneratorTemp_Wiosna();
-        //            break;
-        //        case "LATO":
-        //            await GeneratorTemp_Lato();
-        //            break;
-        //        case "JESIEŃ":
-        //            await GeneratorTemp_Jesien();
-        //            break;
-        //        case "ZIMA":
-        //            await GeneratorTemp_Zima();
-        //            break;
-        //        case "STAŁA":
-        //            await GeneratorTemp_Stala();
-        //            break;
-        //        default:
-        //            await GeneratorTemp_Stala();
-        //            break;
-        //    }
-
-
-
-        //    aktualnaPoraRoku = null;
-
-        //}
-
-
-
-
 
 
 
