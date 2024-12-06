@@ -270,7 +270,7 @@ namespace projektPieca
 
 
 
-            Grzanie(mocGrz, DanaTemp);
+            Grzanie(mocGrz, Wyjscie);
             PrzewCiep(Wyjscie, TemZew);
             WykresTwew();
             System.Console.WriteLine("Wyscie po rozmyciu: " + Wyjscie);
@@ -318,10 +318,14 @@ namespace projektPieca
             System.Console.WriteLine("Wyscie po ===: " + Wyjscie);
         }
 
-        public void Grzanie(float MmocGrz, float DDanaTemp)
+        public void Grzanie(float MmocGrz, float TtempWew)
         {
+            Random r = new Random();
+            float rnd = r.Next(70, 99);
+            rnd = rnd / 100;
+       
 
-
+            float value = rnd * MmocGrz*TtempWew; 
 
 
 
@@ -332,7 +336,7 @@ namespace projektPieca
           //  float value = 0f;
            
              //   value = DanaTemp - mocGrz;
-               // Wyjscie += value / 10f;
+               Wyjscie += value;
             
 
 
