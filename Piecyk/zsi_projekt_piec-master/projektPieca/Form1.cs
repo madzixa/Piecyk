@@ -333,72 +333,98 @@ namespace projektPieca
         {
             int TemZew = Convert.ToInt32(aktualnaTempZew.Text);
             int TempBar = Convert.ToInt32(temperaturaPokojuBar.Value);
-            float temp_in = TempBar - Wyjscie;
+            float Roznica = TempBar - Wyjscie;
 
-            float uZimno = 0.00f;
-            float uLetnio = 0.00f;
-            float uCieplo = 0.00f;
-            float uGoraco = 0.00f;
+            float uBDuza = 0.00f;
+            float uDuza = 0.00f;
+            float uSrednia = 0.00f;
+            float uMala = 0.00f;
+            float uBMala = 0.00f;
             float DanaTemp = temperaturaPokojuBar.Value;
 
-            // Zimno 
-            if (temp_in >= -10 && temp_in <= 5)
-                uZimno =  1;
+            // Bardzo Mała 
+            if (Roznica <= 0)
+                uBMala =  1;
 
             else
-             if (temp_in > 5 && temp_in < 15)
-                uZimno =  (15 - temp_in) / 10;
+             if (Roznica > 0 && Roznica < 2)
+                uBMala =  (2 - Roznica) / 2;
             else
-                uZimno = 0;
+                uBMala = 0;
 
 
 
-            // Letnio 
-            if (temp_in >= 5 && temp_in <= 15)
-                uLetnio =  (temp_in - 5) / 10;
+            // Mała 
+            if (Roznica >= 1 && Roznica <= 2)
+                uMala =  (Roznica - 1) / 1;
             else
-            if (temp_in >= 15 && temp_in <= 25)
-                uLetnio =  (25 - temp_in) / 10;
+            if (Roznica >= 2 && Roznica <= 3)
+                uMala = 1;
+            else 
+            if(Roznica >= 3 && Roznica <= 4)
+                uMala = (4 - Roznica) / 1;
             else
-                uLetnio =  0;
+                uMala =  0;
 
 
 
 
-            // Cieplo 
-            if (temp_in >= 15 && temp_in <= 25)
-                uCieplo = (temp_in - 15) / 10;
+            // Srednia 
+            if (Roznica >= 3 && Roznica <= 4)
+                uSrednia = (Roznica - 3) / 1;
             else
-           if (temp_in >= 25 && temp_in <= 35)
-                uCieplo =  (35 - temp_in) / 10;
+            if (Roznica >= 4 && Roznica <= 5)
+                uSrednia = 1;
             else
-                uCieplo =  0;
-
-
-
-            // Goraco 
-            if (temp_in >= 25 && temp_in <= 35)
-                uGoraco =  (temp_in - 25) / 10;
+            if (Roznica >= 5 && Roznica <= 6)
+                uSrednia = (6 - Roznica) / 1;
             else
-                  if (temp_in >= 35 && temp_in <= 40)
-                uGoraco = 1;
-            else
-                uGoraco =  0;
+                uSrednia = 0;
 
-            System.Console.WriteLine("uZimno: " + uZimno + "; uLetnio :" + uLetnio + "; uCieplo :" + uCieplo + "; uGoraco :" + uGoraco);
+
+
+
+            // Duża 
+            if (Roznica >= 5 && Roznica <= 10)
+                uDuza =  (Roznica - 5) / 5;
+            else
+                if (Roznica >= 10 && Roznica <= 13)
+                uDuza = 1;
+            else
+            if (Roznica >= 13 && Roznica <= 17)
+                uDuza = (17 - Roznica) / 4;
+            else
+                uDuza =  0;
+
+
+
+            // Bardzo  Duża 
+            if (Roznica >= 13 && Roznica <= 17)
+                uBDuza = (Roznica - 13) / 4;
+            else
+                if (Roznica >= 17)
+                uBDuza = 1;
+            else
+                uBDuza = 0;
+
+
+
+
+
+            System.Console.WriteLine("uBDuza: " + uBDuza + "; uDuza :" + uDuza + "; uSrednia :" + uSrednia + "; uMala :" + uMala + "; uBMala :" + uBMala);
 
             // Wnioskowanie
 
             float SWu = 0.00f;
             float sW = 0.00f;
 
-            float A = System.Math.Min(uZimno, DanaTemp);
-            float B = System.Math.Min(uLetnio, DanaTemp);
-            float C = System.Math.Min(uCieplo, DanaTemp);
-            float D = System.Math.Min(uGoraco, DanaTemp);
+            float A = System.Math.Min(uBDuza, DanaTemp);
+            float B = System.Math.Min(uDuza, DanaTemp);
+            float C = System.Math.Min(uSrednia, DanaTemp);
+            float D = System.Math.Min(uMala, DanaTemp);
 
 
-            SWu = uZimno * A + uLetnio * B + uCieplo * C + uGoraco  * D ;
+            SWu = uBDuza * A + uDuza * B + uSrednia * C + uMala  * D ;
             sW = A + B + C + D + 0.01f; /////
             //Wyostrzenie
 
