@@ -14,7 +14,7 @@ namespace projektPieca
     public partial class Piecyk : Form
     {
         int tabSize = 100;
-        float Wyjscie;
+        float Wyjscie = 20.0f;
         //   float WartoscOziebiania;
         private string aktualnaPoraRoku = null;
         private bool isRunning = false;
@@ -147,7 +147,11 @@ namespace projektPieca
 
         public void Rozmycie()
         {
+
+
             int TemZew = Convert.ToInt32(aktualnaTempZew.Text);
+
+
             int TempBar = Convert.ToInt32(temperaturaPokojuBar.Value);
             float Roznica = TempBar - Wyjscie;
 
@@ -227,10 +231,14 @@ namespace projektPieca
 
 
 
+
+            float mocGrz = 0.00f;
+
             System.Console.WriteLine("uBDuza: " + uBDuza + "; uDuza :" + uDuza + "; uSrednia :" + uSrednia + "; uMala :" + uMala + "; uBMala :" + uBMala);
+            System.Console.WriteLine("mocGrz: "+mocGrz);
 
             // Wnioskowanie
-            float mocGrz = 0.00f;
+            
          
             float A = System.Math.Min(uBDuza, DanaTemp);
             float B = System.Math.Min(uDuza, DanaTemp);
@@ -264,38 +272,71 @@ namespace projektPieca
 
             Grzanie(mocGrz, DanaTemp);
             PrzewCiep(Wyjscie, TemZew);
-            WykresTwew(); 
-        }
-        public void PrzewCiep(float Wyjscie, int TemZew)
-        {
+            WykresTwew();
+            System.Console.WriteLine("Wyscie po rozmyciu: " + Wyjscie);
+            System.Console.WriteLine("AKT po rozmyciu: " + aktualnaTempZew.Text);
 
+
+        }
+        public void PrzewCiep(float Wyjsciexd, int TTemZew)     //pamiętaj cholero zmieniaj nazwy na inne
+        {
+            float deltaTemperatura = 0f;
+           // float neWyjscie = Wyjscie;
 
             // Współczynnik przewodzenia ciepła (regulowany na podstawie izolacji)
-            float wspolczynnikPrzewodzenia = 0.1f; // Można dostosować np. dla ocieplanych i nieocieplanych pomieszczeń
+            float wspolczynnikPrzewodzenia = 0.2f; // Można dostosować np. dla ocieplanych i nieocieplanych pomieszczeń
 
             // Różnica temperatur między wnętrzem a zewnętrzem
-            float deltaTemperatura = Wyjscie - TemZew;
-
+            deltaTemperatura = Wyjsciexd - (float)TTemZew;
+            System.Console.WriteLine(" Wyscie przed odj: "+ Wyjsciexd);
+            System.Console.WriteLine(" Wyscie przed odj: " + Wyjscie);
+            System.Console.WriteLine("AKT przed odj: " + aktualnaTempZew.Text);
             // Ilość ciepła przenikającego przez ściany
             float Q = wspolczynnikPrzewodzenia * deltaTemperatura;
 
             // Aktualizacja temperatury wewnętrznej na podstawie przenikania ciepła
-            Wyjscie -= Q;
+            Wyjsciexd = Wyjsciexd - Q;
 
 
-            aktualnaTempWew.Text = Wyjscie.ToString();
+
+            
+
+            aktualnaTempWew.Text = Wyjsciexd.ToString();
             System.Console.WriteLine("Temp: " + aktualnaTempWew.Text);
-            richTextBox1.AppendText("Temperatura pokoju: " + Wyjscie + "\n");
+            System.Console.WriteLine("Wyscie po odj: "+ Wyjsciexd + "  Q: " +Q +"  DeltaTemperatura: "+deltaTemperatura+"  TemZew: "+TTemZew);
+            System.Console.WriteLine("Wyscie po odj: " + Wyjscie);
+
+            System.Console.WriteLine("AKT po odj: " + aktualnaTempZew.Text);
+            richTextBox1.AppendText("Temperatura pokoju: " + Wyjsciexd + "\n");
+            
+
+
+            System.Console.WriteLine("Wyscie po Boxie: " + Wyjsciexd);
+            System.Console.WriteLine("Wyscie po Boxie: " + Wyjscie);
+            Wyjscie = Wyjsciexd;
+            System.Console.WriteLine("Wyscie po ==: " + Wyjsciexd);
+            System.Console.WriteLine("Wyscie po ===: " + Wyjscie);
         }
 
-        public void Grzanie(float mocGrz, float DanaTemp)
+        public void Grzanie(float MmocGrz, float DDanaTemp)
         {
-            mocGrz = mocGrz / 100f;
-            float value = 0f;
+
+
+
+
+
+
+
+
+           // mocGrz = mocGrz / 100f;
+          //  float value = 0f;
            
-                value = DanaTemp - mocGrz;
-                Wyjscie += value / 10f;
+             //   value = DanaTemp - mocGrz;
+               // Wyjscie += value / 10f;
             
+
+
+
             //else
             //{
             //    mocGrz = (Wyjscie - DanaTemp) - mocGrz;
@@ -306,13 +347,14 @@ namespace projektPieca
 
         public void WykresTwew()
         {
-            float x = float.Parse(aktualnaTempWew.Text); 
+            float x = float.Parse(aktualnaTempWew.Text);
             float x2 = float.Parse(aktualnaTempZew.Text);
-            int y =0;
+            int y = 0;
             if (50 > x)
             {
-                
+
                 aTempWykres.Series["TabelaWew"].Points.AddXY(y, x);
+            }
         }
 
 
