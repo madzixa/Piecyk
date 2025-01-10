@@ -13,13 +13,12 @@ namespace projektPieca
 {
     public partial class Piecyk : Form
     {
-        int tabSize = 100;
         float Wyjscie = 20.0f;
-        private string aktualnaPoraRoku = null;
         private bool isRunning = false;
         private string currentRunningSeason = null;
+        float mocGrz = 0.00f;
 
-        int delay = 2000;
+        int delay = 1000;
 
         public Piecyk()
         {
@@ -29,26 +28,16 @@ namespace projektPieca
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             richTextBox1.Clear();
-
-
         }
-
-
-
 
         private void temperaturaPokojuBar_Scroll(object sender, EventArgs e)
         {
             aktualnaTempPok.Text = "" + temperaturaPokojuBar.Value + "°C";
         }
 
-   
-
         private async void ComboBox1_Pory(object sender, EventArgs e)
         {
-     
-
             string wybranaOpcja = comboBox1.SelectedItem.ToString();
 
             if (currentRunningSeason == wybranaOpcja)
@@ -88,16 +77,11 @@ namespace projektPieca
                         pora = 336;
                         pora_koniec = 436;
                         break;
-                    case "STAŁA":
-                        break;
                     default:
                         pora = 1;
                         pora_koniec = 100;
                         break;
                 }
-
-
-
             isRunning = true;
 
             for (int i = pora; i <= pora_koniec; i++)
@@ -112,15 +96,10 @@ namespace projektPieca
                 aktualnaTempZew.Text = tablicaTemperatur[i].ToString();
                 Rozmycie();
 
-                await Task.Delay(2000);
-
+                await Task.Delay(delay);
             }
-
             isRunning = false;
         }
-
-
-
 
         public void Rozmycie()
         {
@@ -139,7 +118,6 @@ namespace projektPieca
             // Bardzo Mała 
             if (Roznica <= 0)
                 uBMala =  1;
-
             else
              if (Roznica > 0 && Roznica < 2)
                 uBMala =  (2 - Roznica) / 2;
@@ -191,13 +169,7 @@ namespace projektPieca
             else
                 uBDuza = 0;
 
-
-            float mocGrz = 0.00f;
-
-            System.Console.WriteLine("uBDuza: " + uBDuza + "; uDuza :" + uDuza + "; uSrednia :" + uSrednia + "; uMala :" + uMala + "; uBMala :" + uBMala);
-            System.Console.WriteLine("mocGrz: "+mocGrz);
-
-            // Wnioskowanie                  
+                 
             float A = uBDuza;
             float B = uDuza;
             float C = uSrednia;
@@ -220,46 +192,25 @@ namespace projektPieca
             Grzanie(mocGrz);
             Przenikanie(Wyjscie, TemZew);
             WykresTwew();
-            System.Console.WriteLine("Wyscie po rozmyciu: " + Wyjscie);
-            System.Console.WriteLine("AKT po rozmyciu: " + aktualnaTempZew.Text);
+            WyswietlMocGrzania();
         }
 
         public void Grzanie(float MmocGrz)
         {
-           // Random r = new Random();
-            // float rnd = r.Next(85, 99);
-            // rnd = rnd / 100;
-            // float value = rnd * MmocGrz*TtempWew; 
-
-
             float value = (1500 * MmocGrz * 600) / (61.25f * 1005);
-
-
             Wyjscie += value;           
         }
 
         public void Przenikanie(float tWew, int tZew)
         {
-
-
-            // Współczynnik przewodzenia ciepła (regulowany na podstawie izolacji)
-            float wspolczynnikPrzewodzenia = 0.1f; // Można dostosować np. dla ocieplanych i nieocieplanych pomieszczeń
-
-            // Różnica temperatur między wnętrzem a zewnętrzem
+            float wspolczynnikPrzewodzenia = 0.1f;
             float deltaTemperatura = tWew - tZew;
-
-            // Ilość ciepła przenikającego przez ściany
             float Q = wspolczynnikPrzewodzenia * 12.5f * deltaTemperatura * 600;
-
             float dT = Q / (61.25f*1005);
-
-            // Aktualizacja temperatury wewnętrznej na podstawie przenikania ciepła
             tWew -= dT;
-
             Wyjscie = tWew;
 
             aktualnaTempWew.Text = Wyjscie.ToString();
-            System.Console.WriteLine("Temp: " + aktualnaTempWew.Text);
             richTextBox1.AppendText("Temperatura pokoju: " + Wyjscie + "\n");
         }
 
@@ -273,7 +224,51 @@ namespace projektPieca
                 aTempWykres.Series["TabelaWew"].Points.AddXY(y, x);
             }
         } 
+
+        public void WyswietlMocGrzania()
+        {
+            string grz;
+
+            switch (mocGrz)
+            {
+                case 1f:
+                    grz = "Max";
+                    break;
+                case 0.75f:
+                    grz = "Duża";
+                    break;
+                case 0.5f:
+                    grz = "Średnia";
+                    break;
+                case 0.25f:
+                    grz = "Mała";
+                    break;
+                case 0f:
+                    grz = "Brak";
+                    break;
+                default:
+                    grz = "Brak";
+                    break;
+            }
+            label4.Text = grz;
+        }
         private void Piecyk_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tempPokText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void aktualnaTempZew_Click(object sender, EventArgs e)
         {
 
         }
